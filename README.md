@@ -27,7 +27,7 @@ rm *.ipk
 9150 - порт SOCKS 5 proxy для трафика через сеть Tor
 ```
 
-### Теперь можем использовать в OpenClash:
+### Можем использовать в OpenClash:
 
 ```yaml
   - name: "Tor"
