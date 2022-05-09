@@ -16,7 +16,7 @@ opkg install wget-ssl tor tor-geoip obfs4proxy
 
 ```bash
 cd /tmp
-wget https://github.com/zerolabnet/luci-app-torbp/raw/main/luci-app-torbp_1.0-1_all.ipk
+wget https://github.com/zerolabnet/luci-app-torbp/releases/download/1.0/luci-app-torbp_1.0-1_all.ipk
 opkg install luci-app-torbp_1.0-1_all.ipk
 rm *.ipk
 ```
