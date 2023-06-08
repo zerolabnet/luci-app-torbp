@@ -1,31 +1,24 @@
 # Copyright 2018-2020 Alex D (https://gitlab.com/Nooblord/)
 # Copyright 2022 ZeroChaos (https://github.com/zerolabnet/)
+# Copyright 2023 Daixiao
 # This is free software, licensed under the GNU General Public License v3.
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-torbp
-PKG_VERSION:=1.0
+PKG_VERSION:=1.1
 PKG_RELEASE:=1
-PKG_MAINTAINER:=ZeroChaos <dev@null.la>
+PKG_MAINTAINER:=Daixiao <dx20100505@gmail.com>
 
-include $(INCLUDE_DIR)/package.mk
-
-define Package/luci-app-torbp
-	SECTION:=luci
-	CATEGORY:=LuCI
-	DEPENDS:=+tor +tor-geoip +obfs4proxy
-	TITLE:=Tor bridges proxy
-	MAINTAINER:=ZeroChaos <dev@null.la>
-	URL:=https://zerolab.net
-	PKGARCH:=all
-endef
-
-define Package/luci-app-torbp/description
+LUCI_TITLE:=LuCI support for torbp
+LUCI_PKGARCH:=all
+LUCI_DEPENDS:=+tor +tor-geoip +obfs4proxy
+  
+define Package/$(PKG_NAME)/description
 Tor with SOCKS 5 proxy with a UI for the ability to add bridges
 endef
 
-define Package/luci-app-torbp/conffiles
+define Package/$(PKG_NAME)/conffiles
 /etc/config/torbp
 endef
 
@@ -35,7 +28,7 @@ endef
 define Build/Compile
 endef
 
-define Package/luci-app-torbp/install
+define Package/$(PKG_NAME)/install
 	# Copy config
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_CONF) ./files/etc/config/torbp $(1)/etc/config/torbp
